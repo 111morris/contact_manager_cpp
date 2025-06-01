@@ -1,5 +1,30 @@
 #include <iostream>
 using namespace std;
+
+void addContact(){
+  cout<<"\n[Add Contact] Feature comming soon.\n";
+  Contact c;
+  cout<<"Enter name: ";
+  cin.ignore();
+  getline(cin, c.name);
+  cout<<"Enter phone number: ";
+  getline(cin, c.phone);
+  cout<<"Enter your email: ";
+  getline(cin, c.email);
+
+  contacts.push_back(c);
+  cout<< "\nContact added";
+}
+
+struct Contact {
+  string name;
+  string phone;
+  string email;
+};
+
+vector<Contact> contacts;
+
+
 int main() {
   short int choice;
 
@@ -26,4 +51,5 @@ int main() {
     cin.ignore(); // Clear leftover newline
     cin.get();    // Wait for user input
   }
+  return (0);
 }
