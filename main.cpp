@@ -24,6 +24,24 @@ struct Contact {
 
 vector<Contact> contacts;
 
+void searchContact() {
+  string query;
+  cout<<"Enter name to search: ";
+  cin.ignore();
+  getline(cin, query);
+
+  bool found = false;
+  for(const auto& c: contacts) {
+    if(c.name == query){
+      cout<<"\nName: " <<c.name<<"\nPhone: "<<c.phone<<"\nEmail: "<< c.email<< '\n';
+      found = true;
+    }
+  }
+  if(!found) {
+    cout<<"Contact not found.\n";
+  }
+}
+
 
 int main() {
   short int choice;
