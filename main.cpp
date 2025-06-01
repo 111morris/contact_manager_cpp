@@ -25,7 +25,7 @@ int main() {
     break;
     default:
     cout<<"\nInvalid input!";
-    cout<<"\nPress any key to continue..";
+
   }
   return(0);
 }
