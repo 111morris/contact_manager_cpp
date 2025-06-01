@@ -28,9 +28,6 @@ void addContact(){
   cout<< "\nContact added";
 }
 
-
-vector<Contact> contacts;
-
 void searchContact() {
   string query;
   cout<<"Enter name to search: ";
@@ -40,7 +37,9 @@ void searchContact() {
   bool found = false;
   for(const auto& c: contacts) {
     if(c.name == query){
-      cout<<"\nName: " <<c.name<<"\nPhone: "<<c.phone<<"\nEmail: "<< c.email<< '\n';
+      cout<<"\nName: " <<c.name
+        <<"\nPhone: "<<c.phone
+        <<"\nEmail: "<< c.email<< '\n';
       found = true;
     }
   }
