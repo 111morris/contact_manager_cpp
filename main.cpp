@@ -1,4 +1,8 @@
 #include <iostream>
+#include <vector>
+#include <string>
+#include <cstdlib> //this is for the system
+//
 using namespace std;
 
 void addContact(){
