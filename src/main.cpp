@@ -56,7 +56,7 @@ void help() {
     cout << "4. Exit - Closes the program.\n";
 }
 
-self_exit(){
+void self_exit(){
   cout<<"\nExiting program. Goodby!\n";
 }
 
