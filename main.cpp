@@ -41,7 +41,9 @@ void searchContact() {
     cout<<"Contact not found.\n";
   }
 }
-
+self_exit(){
+  cout<<"\nExiting program. Goodby!\n";
+}
 
 int main() {
   short int choice;
