@@ -47,6 +47,14 @@ void searchContact() {
     cout<<"Contact not found.\n";
   }
 }
+
+void help() {
+    cout << "\nHelp - Contact Manager\n";
+    cout << "1. Add contact - Adds a new contact to your list.\n";
+    cout << "2. Search contact - Look up a contact by name.\n";
+    cout << "3. Help - Shows this help message.\n";
+    cout << "4. Exit - Closes the program.\n";
+}
 self_exit(){
   cout<<"\nExiting program. Goodby!\n";
 }
