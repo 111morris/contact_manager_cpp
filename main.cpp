@@ -55,6 +55,7 @@ void help() {
     cout << "3. Help - Shows this help message.\n";
     cout << "4. Exit - Closes the program.\n";
 }
+
 self_exit(){
   cout<<"\nExiting program. Goodby!\n";
 }
@@ -69,9 +70,9 @@ int main() {
       system(clear);
     #endif
 
-    cout << nContact Manager;
-    cout << n1. Add contactn2. Search contactn3. Helpn4. Exitnn;
-    cout << Enter choice: ;
+    cout << "\ncontact Manager\n";
+    cout << "1. Add contact\n2. Search contact\n3. Help\n4. Exit\n\n";
+    cout << "Enter choice: ";
     cin >> choice;
 
     switch (choice) {
@@ -79,9 +80,10 @@ int main() {
       case 2: searchContact(); break;
       case 3: help(); break;
       case 4: self_exit(); return 0;
+      default: cout<< "Invalid option. Try again.\n";break;
     }
 
-    cout << nPress Enter to continue...;
+    cout << "\nPress Enter to continue...";
     cin.ignore(); // Clear leftover newline
     cin.get();    // Wait for user input
   }
