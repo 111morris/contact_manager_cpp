@@ -1,91 +1,38 @@
+#include "ContactManager.hpp"
 #include <iostream>
-#include <vector>
-#include <string>
-#include <cstdlib> //this is for the system
-//
-using namespace std;
-
-struct Contact {
-  string name;
-  string phone;
-  string email;
-};
-
-vector<Contact> contacts;
-
-void addContact(){
-  cout<<"\n[Add Contact] Feature comming soon.\n";
-  Contact c;
-  cout<<"Enter name: ";
-  cin.ignore();
-  getline(cin, c.name);
-  cout<<"Enter phone number: ";
-  getline(cin, c.phone);
-  cout<<"Enter your email: ";
-  getline(cin, c.email);
-
-  contacts.push_back(c);
-  cout<< "\nContact added";
-}
-
-void searchContact() {
-  string query;
-  cout<<"Enter name to search: ";
-  cin.ignore();
-  getline(cin, query);
-
-  bool found = false;
-  for(const auto& c: contacts) {
-    if(c.name == query){
-      cout<<"\nName: " <<c.name
-        <<"\nPhone: "<<c.phone
-        <<"\nEmail: "<< c.email<< '\n';
-      found = true;
-    }
-  }
-  if(!found) {
-    cout<<"Contact not found.\n";
-  }
-}
-
-void help() {
-    cout << "\nHelp - Contact Manager\n";
-    cout << "1. Add contact - Adds a new contact to your list.\n";
-    cout << "2. Search contact - Look up a contact by name.\n";
-    cout << "3. Help - Shows this help message.\n";
-    cout << "4. Exit - Closes the program.\n";
-}
-
-void self_exit(){
-  cout<<"\nExiting program. Goodby!\n";
-}
 
 int main() {
-  short int choice;
+    ContactManager manager("contacts.json");
+    manager.load();
 
-  while (true) {
-    #ifdef _WIN32
-      system("cls");
-    #else
-      system("clear");
-    #endif
+    while (true) {
+        std::cout << "1. Add Contact\n2. List Contacts\n3. Search Contact\n4. Save & Exit\n> ";
+        int choice;
+        std::cin >> choice;
+        std::cin.ignore(); // ignore leftover newline
 
-    cout << "\ncontact Manager\n";
-    cout << "1. Add contact\n2. Search contact\n3. Help\n4. Exit\n\n";
-    cout << "Enter choice: ";
-    cin >> choice;
-
-    switch (choice) {
-      case 1: addContact(); break;
-      case 2: searchContact(); break;
-      case 3: help(); break;
-      case 4: self_exit(); return 0;
-      default: cout<< "Invalid option. Try again.\n";break;
+        if (choice == 1) {
+            std::string name, phone, email;
+            std::cout << "Name: "; std::getline(std::cin, name);
+            std::cout << "Phone: "; std::getline(std::cin, phone);
+            std::cout << "Email: "; std::getline(std::cin, email);
+            manager.addContact(Contact(name, phone, email));
+        } else if (choice == 2) {
+            manager.listContacts();
+        } else if (choice == 3) {
+            std::string keyword;
+            std::cout << "Search by name: ";
+            std::getline(std::cin, keyword);
+            manager.searchContact(keyword);
+        } else if (choice == 4) {
+            manager.save();
+            std::cout << "Contacts saved. Goodbye!\n";
+            break;
+        } else {
+            std::cout << "Invalid choice.\n";
+        }
     }
 
-    cout << "\nPress Enter to continue...";
-    cin.ignore(); // Clear leftover newline
-    cin.get();    // Wait for user input
-  }
-  return (0);
+    return 0;
 }
+
