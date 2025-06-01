@@ -1,0 +1,8 @@
+main
+
+*.out
+*.exe
+
+*.o 
+*~
+*.swp
