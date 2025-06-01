@@ -22,8 +22,18 @@ void Setup(){
   fruitX = rand() % width;
   fruitY = rand() % height;
   score = 0;
-}
+};
+
+void clearScreen() {
+  #ifdef _WIN32
+  system("cls"); // this is for windows
+#else 
+system("clear"); // this is for linux
+#endif
+ }
 void Draw() {
+  //first we clear the screan
+  clearScreen();
 }
 void Input() {
 }
