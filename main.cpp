@@ -5,6 +5,14 @@
 //
 using namespace std;
 
+struct Contact {
+  string name;
+  string phone;
+  string email;
+};
+
+vector<Contact> contacts;
+
 void addContact(){
   cout<<"\n[Add Contact] Feature comming soon.\n";
   Contact c;
@@ -20,11 +28,6 @@ void addContact(){
   cout<< "\nContact added";
 }
 
-struct Contact {
-  string name;
-  string phone;
-  string email;
-};
 
 vector<Contact> contacts;
 
