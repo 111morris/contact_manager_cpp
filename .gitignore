@@ -1,8 +1,9 @@
 main
-
 *.out
 *.exe
-
 *.o 
 *~
 *.swp
+json/
+contact_manager_app
+
