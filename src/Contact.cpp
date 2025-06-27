@@ -13,7 +13,7 @@ void Contact::display_name() const {
   std::cout << "Name: "<< name;
 }
 void Contact::display_phone() const{
-  std::cout<< "Name: "<< name;
+  std::cout<< "Name: "<< phone;
 }
 
 nlohmann::json Contact::toJson() const {
