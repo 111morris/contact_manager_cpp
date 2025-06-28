@@ -9,9 +9,6 @@ void Contact::display() const {
     std::cout << "Name: " << name << "\nPhone: " << phone << "\nEmail: " << email << "\n";
 }
 
-void Contact::display_name() const {
-  std::cout << "Name: "<< name;
-}
 
 nlohmann::json Contact::toJson() const {
     return nlohmann::json{{"name", name}, {"phone", phone}, {"email", email}};
